@@ -1,0 +1,9 @@
+from django.urls import path
+
+from asciitools.views import home_view, image_to_ascii_view, image_to_emoji_view
+
+urlpatterns = [
+    path('', home_view, name="home"),
+    path('image-to-ascii', image_to_ascii_view, name="image_to_ascii"),
+    path('image-to-emoji', image_to_emoji_view, name="image_to_emoji")
+]

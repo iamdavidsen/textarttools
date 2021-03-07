@@ -1,0 +1,42 @@
+{% extends "_base.html" %}
+
+{% block title %}
+    Result
+{% endblock %}
+
+{% block imports %}
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.0.0/caman.full.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    {% include "_header.html" %}
+    <section>
+        <div class="container px-4 mx-auto mb-6 mt-16">
+            <h1 class="text-4xl">Image To Ascii Art Monospace</h1>
+        </div>
+        <div class="container px-4 mx-auto">
+            <div class="mb-4 overflow-auto bg-blueGray-50 rounded">
+                <pre class="text-xs font-mono font-semibold">{{ result }}</pre>
+            </div>
+            <div class="mb-4">
+                <div class="flex space-x-4">
+                    <div class="w-full">
+                        <button class="block w-full py-4 px-8 text-sm text-white font-semibold leading-none bg-blue-600 hover:bg-blue-700 rounded"
+                                type="submit">Back
+                        </button>
+                    </div>
+                    <div class="w-full">
+                        <button class="block w-full py-4 px-8 text-sm text-white font-semibold leading-none bg-blue-600 hover:bg-blue-700 rounded"
+                                type="submit">Convert
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hidden">
+            {{ form }}
+        </div>
+    </section>
+    {% include "_footer.html" %}
+{% endblock %}

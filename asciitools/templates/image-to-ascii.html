@@ -1,0 +1,74 @@
+{% extends "_base.html" %}
+
+{% block title %}
+    Image To Ascii Art
+{% endblock %}
+
+{% block imports %}
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.0.0/caman.full.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    {% include "_header.html" %}
+    <section>
+        <div class="container px-4 mx-auto mb-6 mt-16">
+            <h1 class="text-4xl">Image To Ascii Art Monospace</h1>
+        </div>
+        <form class="container px-4 mx-auto" x-data="imageConverter()" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="mb-4">
+                <p class="text-sm font-semibold text-gray-500">Upload Image</p>
+                <label class="flex items-center pl-4 pr-2 bg-blueGray-100 rounded">
+                    <div class="text-xs font-semibold leading-none" x-text="imageName"></div>
+                    <input
+                            class="hidden"
+                            type="file"
+                            accept="image/*"
+                            placeholder="Choose file.."
+                            name="image"
+                            @change="fileChosen">
+                    <div class="my-1 ml-auto px-4 py-3 text-xs text-white font-semibold leading-none bg-blueGray-500 hover:bg-blueGray-600 rounded cursor-pointer">
+                        Browse
+                    </div>
+                </label>
+            </div>
+            <template x-if="imageUrl">
+                <div class="mb-4">
+                    <img :src="imageUrl" class="w-full bg-gray-200 rounded"/>
+                </div>
+            </template>
+            <div class="mb-4">
+                <div class="flex space-x-4">
+                    <div class="w-full">
+                        <label class="text-sm font-semibold text-gray-500">Width</label>
+                        <input
+                                name="width"
+                                class="w-full p-4 text-xs font-semibold leading-none bg-blueGray-100 rounded outline-none"
+                                type="number"
+                                value="200"
+                                placeholder="200">
+                    </div>
+                    <div class="w-full">
+                        <label class="text-sm font-semibold text-gray-500">Line Height</label>
+                        <input
+                                name="line_height"
+                                class="w-full p-4 text-xs font-semibold leading-none bg-blueGray-100 rounded outline-none"
+                                type="number"
+                                value="20"
+                                placeholder="100">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button
+                        class="block w-full py-4 px-8 text-sm text-white font-semibold leading-none bg-blue-600 hover:bg-blue-700 rounded"
+                        type="submit">
+                    Convert
+                </button>
+            </div>
+        </form>
+    </section>
+    {% include "_footer.html" %}
+{% endblock %}
