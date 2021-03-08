@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from PIL import Image
+from PIL import Image, ImageOps
 
 from asciitools.converters import convert_to_text
 from asciitools.forms import ImageToAsciiForm, ImageToEmojiForm
@@ -14,7 +14,7 @@ def image_to_ascii_view(request):
         upload_form = ImageToAsciiForm(request.POST, request.FILES)
 
         if upload_form.is_valid():
-            string = convert_to_text(Image.open(upload_form.cleaned_data["image"]))
+            string = convert_to_text(ImageOps.exif_transpose(Image.open(upload_form.cleaned_data["image"])))
             return render(request, "image-result.html", { 'result': string })
     else:
         upload_form = ImageToEmojiForm()
