@@ -127,6 +127,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+
 if not DEBUG:
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
@@ -140,5 +141,6 @@ if not DEBUG:
     AWS_STORAGE_BUCKET_NAME="asciigenerator"
     AWS_ACCESS_KEY_ID=LINODE_BUCKET_ACCESS_KEY
     AWS_SECRET_ACCESS_KEY=LINODE_BUCKET_SECRET_KEY
+
 
 AUTH_USER_MODEL = 'accounts.Account'
