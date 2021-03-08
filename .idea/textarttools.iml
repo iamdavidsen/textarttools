@@ -21,6 +21,7 @@
     <orderEntry type="library" name="inter" level="application" />
     <orderEntry type="library" name="camanjs" level="application" />
     <orderEntry type="library" name="beacon" level="application" />
+    <orderEntry type="library" name="24da465ef7" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
