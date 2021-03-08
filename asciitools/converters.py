@@ -7,12 +7,12 @@ def convert_to_text(image):
     symbol_width = 7.2
     symbol_height = 18
 
-    max_pixels = 140
+    max_pixels = 200
     ratio = max_pixels/w
 
     resized_image = image.convert('LA').resize((int(w * ratio), int(h * ratio * ( symbol_width / symbol_height )))).convert("L")
 
-    symbols = [" ", "-", "=", "O", "L", 'K', 'X']
+    symbols =  "8PdI_ "[::-1]
 
     pixels = np.array(resized_image, dtype=np.int32)
 
