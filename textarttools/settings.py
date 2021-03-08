@@ -23,7 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'nmq+u@kmh&6wdbbhp3@7bt+oc)z66#d_m5+i*^^!$z6j9bnh1#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
+DEBUG = os.environ.get('DEBUG', 'False') == "True"
 
 ALLOWED_HOSTS = ["asciigenerator.net", "127.0.0.1"]
 
