@@ -25,7 +25,7 @@ SECRET_KEY = 'nmq+u@kmh&6wdbbhp3@7bt+oc)z66#d_m5+i*^^!$z6j9bnh1#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["asciigenerator.net"]
+ALLOWED_HOSTS = ["asciigenerator.net", "127.0.0.1"]
 
 
 # Application definition
@@ -119,12 +119,26 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+if not DEBUG:
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+    LINODE_BUCKET_ACCESS_KEY=os.environ.get('LINODE_BUCKET_ACCESS_KEY', '')
+    LINODE_BUCKET_SECRET_KEY=os.environ.get('LINODE_BUCKET_SECRET_KEY', '')
+
+    AWS_S3_ENDPOINT_URL="https://asciigenerator.eu-central-1.linodeobjects.com"
+    AWS_S3_REGION_NAME="eu-central-1"
+    AWS_S3_USE_SSL=True
+    AWS_STORAGE_BUCKET_NAME="asciigenerator"
+    AWS_ACCESS_KEY_ID=LINODE_BUCKET_ACCESS_KEY
+    AWS_SECRET_ACCESS_KEY=LINODE_BUCKET_SECRET_KEY
 
 AUTH_USER_MODEL = 'accounts.Account'
