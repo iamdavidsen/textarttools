@@ -1,1 +1,3 @@
-"web: gunicorn textarttools.wsgi" 
+web: gunicorn textarttools.wsgi
+
+release: python manage.py migrate --noinput
