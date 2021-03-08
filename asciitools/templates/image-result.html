@@ -26,13 +26,27 @@
                         type="submit">Copy To Clipboard
                 </button>
             </div>
-            <div class="mb-4 bg-blueGray-50 rounded flex p-4">
-                <textarea id="text" class="text-xs font-mono font-semibold mx-auto">{{ result }}</textarea>
+            <div class="mb-4">
+                <div
+                        style="resize: horizontal;overflow: hidden;width: 100%;height: auto;"
+                >
+                    <svg
+                            onload="loadSvg()"
+                            id="svg"
+                            width="100%"
+                            viewBox="0 0 100 100"
+                    >
+                        <foreignObject height="100%" width="100%">
+                            <pre id="text" class="text-xs font-mono font-semibold mx-auto">{{ result }}</pre>
+                        </foreignObject>
+                    </svg>
+                </div>
+
             </div>
             <div class="mb-4">
                 <div class="w-full">
                     <a href="{% url "image_to_ascii" %}"
-                       class="block w-full py-4 px-8 text-sm text-white font-semibold leading-none bg-orange-600 hover:bg-blue-700 rounded">
+                       class="block w-full py-4 px-8 text-sm text-center text-white font-semibold leading-none bg-orange-600 hover:bg-blue-700 rounded">
                         Generate another one?
                     </a>
                 </div>
@@ -46,5 +60,12 @@
 {% endblock %}
 
 {% block scripts %}
-
+<script>
+    function loadSvg(){
+        var element = document.getElementById("text")
+        var w = element.scrollWidth;
+        var h = element.scrollHeight;
+        document.getElementById("svg").setAttribute("viewBox","0 0 " + w + " " + h);
+    }
+</script>
 {% endblock scripts %}
