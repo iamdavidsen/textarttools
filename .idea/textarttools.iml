@@ -20,6 +20,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="inter" level="application" />
     <orderEntry type="library" name="camanjs" level="application" />
+    <orderEntry type="library" name="beacon" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />

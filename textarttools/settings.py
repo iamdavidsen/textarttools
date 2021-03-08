@@ -29,6 +29,7 @@ DEBUG = os.environ.get('DEBUG', 'False') == "True"
 ALLOWED_HOSTS = ["asciigenerator.net", "127.0.0.1"]
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
