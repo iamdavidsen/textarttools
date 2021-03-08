@@ -25,7 +25,7 @@ SECRET_KEY = 'nmq+u@kmh&6wdbbhp3@7bt+oc)z66#d_m5+i*^^!$z6j9bnh1#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["139.162.225.89"]
+ALLOWED_HOSTS = ["asciigenerator.net"]
 
 
 # Application definition
