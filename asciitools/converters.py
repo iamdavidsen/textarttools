@@ -1,13 +1,13 @@
 import numpy as np
 
 
-def convert_to_text(image):
+def convert_to_text(image, max_pixels, symbol_width, symbol_height):
     w, h = image.size
 
-    symbol_width = 7.2
-    symbol_height = 18
+    #symbol_width = 7.2
+    #symbol_height = 18
 
-    max_pixels = 200
+    #max_pixels = 200
     ratio = max_pixels/w
 
     resized_image = image.convert('LA').resize((int(w * ratio), int(h * ratio * ( symbol_width / symbol_height )))).convert("L")
