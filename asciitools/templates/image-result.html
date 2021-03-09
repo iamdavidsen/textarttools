@@ -6,11 +6,6 @@
     image to ascii art
 {% endblock %}
 
-{% block imports %}
-    <script type="text/javascript"
-            src="{% static "javascript/fitty.min.js" %}"></script>
-{% endblock %}
-
 {% block content %}
     {% include "_header.html" %}
     <section>
@@ -37,7 +32,7 @@
                             viewBox="0 0 100 100"
                     >
                         <foreignObject height="100%" width="100%">
-                            <pre id="text" class="text-xs font-mono font-semibold mx-auto">{{ result }}</pre>
+                            <pre id="text" class="text-xs font-mono font-bold mx-auto leading-none">{{ result }}</pre>
                         </foreignObject>
                     </svg>
                 </div>
@@ -57,9 +52,13 @@
     </section>
     {% include "_footer.html" %}
 {% endblock %}
-
 {% block scripts %}
 <script>
-
+    function loadSvg(){
+        var element = document.getElementById("text")
+        var w = element.scrollWidth;
+        var h = element.scrollHeight;
+        document.getElementById("svg").setAttribute("viewBox","0 0 " + w + " " + h);
+    }
 </script>
 {% endblock scripts %}

@@ -4,11 +4,6 @@
     Image To Ascii Art
 {% endblock %}
 
-{% block imports %}
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.0.0/caman.full.min.js"></script>
-{% endblock %}
-
 {% block content %}
     {% include "_header.html" %}
     <section>
@@ -71,7 +66,7 @@
                                 name="line_height"
                                 class="w-full p-4 text-xs font-semibold leading-none bg-blueGray-100 rounded outline-none"
                                 type="number"
-                                value="18"
+                                value="12"
                                 placeholder="100">
                         {% include "_form_errors.html" with field=form.line_height %}
                         {% include "_form_help.html" with field=form.line_height %}

@@ -1,19 +1,14 @@
 {% extends "_base.html" %}
 
 {% block title %}
-    Ascii Text Banner Generator
-{% endblock %}
-
-{% block imports %}
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.0.0/caman.full.min.js"></script>
+    Ascii Text Art Banner Generator
 {% endblock %}
 
 {% block content %}
     {% include "_header.html" %}
     <section>
         <div class="container px-4 mx-auto mb-6 mt-16">
-            <h1 class="text-4xl">Ascii Text Banner Generator</h1>
+            <h1 class="text-4xl">Ascii Text Art Banner Generator</h1>
         </div>
         <form class="container px-4 mx-auto" method="post" enctype="multipart/form-data">
             {% csrf_token %}
@@ -35,42 +30,7 @@
                     Create Banner
                 </button>
             </div>
-            {% for banner in result %}
-                <div class="mb-4">
-                    <p class="text-xs">{{ banner.font }}</p>
-                    <div
-                            class="svg"
-                            style="resize: horizontal;overflow: hidden;width: 100%;height: auto;"
-                    >
-                        <svg
-                                width="100%"
-                                viewBox="0 0 100 100"
-                        >
-                            <foreignObject height="100%" width="100%">
-                                <pre class="result-text text-xs font-mono font-semibold mx-auto">{{ banner.text }}</pre>
-                            </foreignObject>
-                        </svg>
-                    </div>
-                </div>
-            {% endfor %}
         </form>
     </section>
     {% include "_footer.html" %}
-{% endblock %}
-
-{% block scripts %}
-    <script>
-        (function loadSvg() {
-            document.querySelectorAll(".svg").forEach(function() {
-                svg = this
-
-                this.addEventListener("load", function () {
-                    var element = svg.querySelector(".result-text")
-                    var w = element.scrollWidth;
-                    var h = element.scrollHeight;
-                    svg.querySelector("svg").setAttribute("viewBox", "0 0 " + w + " " + h);
-                })
-            })
-        })()
-    </script>
 {% endblock %}

@@ -32,8 +32,7 @@ def convert_to_text(image, max_pixels, symbol_width, symbol_height):
     return string
 
 def convert_to_banner(text):
-    figlet = Figlet(font="slant")
-    fonts = ["5lineoblique","acrobatic","avatar","basic","bell","big","bigchief","binary","block","bubble","chunky","contessa","fuzzy","goofy","graffiti","greek","linux","slant","small","smslant","speed","standard","stop"]
+    fonts = ["banner", "big", "block", "bubble", "lean", "mini", "script", "shadow", "slant", "standard"]
 
     for i in range(len(fonts)):
         figlet = Figlet(font=fonts[i])

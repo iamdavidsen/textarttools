@@ -4,11 +4,6 @@ from PIL import Image, ImageOps
 from asciitools.converters import convert_to_text, convert_to_banner
 from asciitools.forms import ImageToAsciiForm, BannerGeneratorForm
 
-
-def home_view(request):
-    return render(request, "home.html", {})
-
-
 def image_to_ascii_view(request):
     if request.method == "POST":
         upload_form = ImageToAsciiForm(request.POST, request.FILES)
@@ -35,7 +30,7 @@ def banner_generator_view(request):
             text = upload_form.cleaned_data["text"]
 
             banners = convert_to_banner(text)
-            return render(request, "banner-generator.html", {'from': upload_form, 'result': banners})
+            return render(request, "banner-result.html", {'result': banners})
     else:
         upload_form = BannerGeneratorForm()
 
