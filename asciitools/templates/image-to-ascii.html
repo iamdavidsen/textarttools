@@ -1,14 +1,14 @@
 {% extends "_base.html" %}
 
 {% block title %}
-    Image To Ascii Art
+    Image to Ascii Art Generator
 {% endblock %}
 
 {% block content %}
     {% include "_header.html" %}
     <section>
         <div class="container px-4 mx-auto mb-6 mt-16">
-            <h1 class="text-4xl">Image To Ascii Art</h1>
+            <h1 class="text-4xl">Image to Ascii Art Generator</h1>
         </div>
         <form class="container px-4 mx-auto" x-data="imageConverter()" method="post" enctype="multipart/form-data">
             {% csrf_token %}
