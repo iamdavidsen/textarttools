@@ -6,7 +6,8 @@
             <div class="svg" style="resize: horizontal;overflow: hidden;width: 100%;height: auto;">
                 <svg x-ref="svg" width="100%" viewBox="0 0 0 0">
                     <foreignObject height="100%" width="100%">
-                        <pre x-ref="text" class="text-blue-600 result-text text-xl font-mono font-bold mx-auto leading-none">    ___              _ _ ______                           __                          __
+                        <pre x-ref="text"
+                             class="text-blue-600 result-text text-xl font-mono font-bold mx-auto leading-none">    ___              _ _ ______                           __                          __
    /   |  __________(_|_) ____/__  ____  ___  _________ _/ /_____  _____  ____  ___  / /_
   / /| | / ___/ ___/ / / / __/ _ \/ __ \/ _ \/ ___/ __ `/ __/ __ \/ ___/ / __ \/ _ \/ __/
  / ___ |(__  ) /__/ / / /_/ /  __/ / / /  __/ /  / /_/ / /_/ /_/ / /  _ / / / /  __/ /_
@@ -17,12 +18,14 @@
                 </svg>
             </div>
         </a>
-        <nav class="flex items-start flex-col py-6 md:flex-row  md:flex-no-wrap md:justify-between">
-            <ul class="flex items-center space-x-12 mr-0">
-                <li><a class="text-base font-semibold text-blueGray-400 hover:text-blueGray-500"
-                       href="{% url "image_to_ascii" %}">Image converter</a></li>
-                <li><a class="text-base font-semibold text-blueGray-400 hover:text-blueGray-500"
-                       href="{% url "text_to_banner" %}">Banner Generator</a></li>
+        <nav class="flex text-center items-center mr-0 block w-full text-sm text-white font-semibold leading-none bg-gray-400 rounded">
+
+                    <a class="flex-1 text-base font-semibold hover:bg-gray-500 py-4 px-8 rounded-l"
+                       href="{% url "image_to_ascii" %}">Image converter</a>
+
+                    <a class="flex-1 text-base font-semibold hover:bg-gray-500 py-4 px-8 rounded-r"
+                       href="{% url "text_to_banner" %}">Banner Generator</a>
+
             </ul>
         </nav>
     </div>

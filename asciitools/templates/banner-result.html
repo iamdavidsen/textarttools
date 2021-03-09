@@ -23,7 +23,6 @@
             </div>
             {% for banner in result %}
                 <div class="mb-4 p-4 bg-blueGray-100 rounded" x-data="responsiveText()" x-init="onLoad()">
-                    <p class="text-xs">{{ banner.font }}</p>
                     <div class="svg" style="resize: horizontal;overflow: hidden;width: 100%;height: auto;">
                         <svg x-ref="svg" width="100%" viewBox="0 0 1000 1000">
                             <foreignObject height="100%" width="100%">
