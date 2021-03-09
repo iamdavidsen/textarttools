@@ -42,6 +42,7 @@
                         name="width"
                         class="w-full p-4 text-xs font-semibold leading-none bg-blueGray-100 rounded outline-none"
                         type="number"
+                        step="any"
                         value="200"
                         placeholder="200">
                 {% include "_form_errors.html" with field=form.width %}
@@ -55,6 +56,7 @@
                                 name="character_width"
                                 class="w-full p-4 text-xs font-semibold leading-none bg-blueGray-100 rounded outline-none"
                                 type="number"
+                                step="any"
                                 value="7.2"
                                 placeholder="100">
                         {% include "_form_errors.html" with field=form.character_width %}

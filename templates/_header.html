@@ -1,10 +1,28 @@
 <section>
     <div class="container px-4 mx-auto">
+
+        <a href="{% url "image_to_ascii" %}" class="mb-4" x-data="responsiveText()" x-init="onLoad()">
+            <p class="text-xs">{{ banner.font }}</p>
+            <div class="svg" style="resize: horizontal;overflow: hidden;width: 100%;height: auto;">
+                <svg x-ref="svg" width="100%" viewBox="0 0 0 0">
+                    <foreignObject height="100%" width="100%">
+                        <pre x-ref="text" class="text-blue-600 result-text text-xl font-mono font-bold mx-auto leading-none">    ___              _ _ ______                           __                          __
+   /   |  __________(_|_) ____/__  ____  ___  _________ _/ /_____  _____  ____  ___  / /_
+  / /| | / ___/ ___/ / / / __/ _ \/ __ \/ _ \/ ___/ __ `/ __/ __ \/ ___/ / __ \/ _ \/ __/
+ / ___ |(__  ) /__/ / / /_/ /  __/ / / /  __/ /  / /_/ / /_/ /_/ / /  _ / / / /  __/ /_
+/_/  |_/____/\___/_/_/\____/\___/_/ /_/\___/_/   \__,_/\__/\____/_/  (_)_/ /_/\___/\__/
+
+        </pre>
+                    </foreignObject>
+                </svg>
+            </div>
+        </a>
         <nav class="flex items-start flex-col py-6 md:flex-row  md:flex-no-wrap md:justify-between">
-            <a class="text-4xl font-semibold leading-none font-mono tracking-wider text-blue-600 underline" href="/">AsciiGenerator.net</a>
             <ul class="flex items-center space-x-12 mr-0">
-                <li><a class="text-base font-semibold text-blueGray-400 hover:text-blueGray-500" href="{% url "image_to_ascii" %}">Image converter</a></li>
-                <li><a class="text-base font-semibold text-blueGray-400 hover:text-blueGray-500" href="{% url "text_to_banner" %}">Banner Generator</a></li>
+                <li><a class="text-base font-semibold text-blueGray-400 hover:text-blueGray-500"
+                       href="{% url "image_to_ascii" %}">Image converter</a></li>
+                <li><a class="text-base font-semibold text-blueGray-400 hover:text-blueGray-500"
+                       href="{% url "text_to_banner" %}">Banner Generator</a></li>
             </ul>
         </nav>
     </div>

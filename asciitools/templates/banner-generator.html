@@ -23,6 +23,18 @@
                 {% include "_form_errors.html" with field=form.text %}
                 {% include "_form_help.html" with field=form.text %}
             </div>
+            <div class="mb-4">
+                <label class="text-sm font-semibold text-gray-500">Width</label>
+                <input
+                        name="width"
+                        class="w-full p-4 text-xs font-semibold leading-none bg-blueGray-100 rounded outline-none"
+                        step="any"
+                        type="number"
+                        value="200"
+                        placeholder="200">
+                {% include "_form_errors.html" with field=form.width %}
+                {% include "_form_help.html" with field=form.width %}
+            </div>
             <div>
                 <button
                         class="block w-full py-4 px-8 text-sm text-white font-semibold leading-none bg-blue-600 hover:bg-blue-700 rounded"

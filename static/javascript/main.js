@@ -22,4 +22,13 @@ function imageConverter() {
     }
 }
 
-
+function responsiveText() {
+    return {
+        onLoad: function () {
+            var element = this.$refs.text
+            var w = element.scrollWidth;
+            var h = element.scrollHeight;
+            this.$refs.svg.setAttribute("viewBox", "0 0 " + w + " " + h);
+        }
+    }
+}

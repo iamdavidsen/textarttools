@@ -28,8 +28,9 @@ def banner_generator_view(request):
 
         if upload_form.is_valid():
             text = upload_form.cleaned_data["text"]
+            width = upload_form.cleaned_data["width"]
 
-            banners = convert_to_banner(text)
+            banners = convert_to_banner(text, width)
             return render(request, "banner-result.html", {'result': banners})
     else:
         upload_form = BannerGeneratorForm()

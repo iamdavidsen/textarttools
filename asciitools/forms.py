@@ -33,11 +33,20 @@ class ImageToAsciiForm(forms.Form):
 
 class BannerGeneratorForm(forms.Form):
     text = forms.CharField()
+    width = forms.IntegerField()
 
     def clean_text(self):
         data = self.cleaned_data.get("text")
 
         if len(data) > 60:
             raise forms.ValidationError("Pick a value below 60")
+
+        return data
+
+    def clean_width(self):
+        data = self.cleaned_data.get("width")
+
+        if data > 1000 or data < 4:
+            raise forms.ValidationError("Pick a value between 8 and 800")
 
         return data

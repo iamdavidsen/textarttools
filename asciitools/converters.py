@@ -31,11 +31,11 @@ def convert_to_text(image, max_pixels, symbol_width, symbol_height):
 
     return string
 
-def convert_to_banner(text):
+def convert_to_banner(text, width):
     fonts = ["banner", "big", "block", "bubble", "lean", "mini", "script", "shadow", "slant", "standard"]
 
     for i in range(len(fonts)):
-        figlet = Figlet(font=fonts[i])
+        figlet = Figlet(font=fonts[i], width=width)
         fonts[i] = {"text": figlet.renderText(text), "font": fonts[i]}
 
     return fonts
