@@ -1,4 +1,5 @@
 import numpy as np
+from pyfiglet import Figlet
 
 
 def convert_to_text(image, max_pixels, symbol_width, symbol_height):
@@ -8,6 +9,7 @@ def convert_to_text(image, max_pixels, symbol_width, symbol_height):
     #symbol_height = 18
 
     #max_pixels = 200
+
     ratio = max_pixels/w
 
     resized_image = image.convert('LA').resize((int(w * ratio), int(h * ratio * ( symbol_width / symbol_height )))).convert("L")
@@ -28,3 +30,14 @@ def convert_to_text(image, max_pixels, symbol_width, symbol_height):
         string += "\n"
 
     return string
+
+def convert_to_banner(text):
+    figlet = Figlet(font="slant")
+    fonts = ["5lineoblique","acrobatic","avatar","basic","bell","big","bigchief","binary","block","bubble","chunky","contessa","fuzzy","goofy","graffiti","greek","linux","slant","small","smslant","speed","standard","stop"]
+
+    for i in range(len(fonts)):
+        figlet = Figlet(font=fonts[i])
+        fonts[i] = {"text": figlet.renderText(text), "font": fonts[i]}
+
+    return fonts
+
