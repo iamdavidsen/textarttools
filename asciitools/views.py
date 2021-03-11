@@ -13,11 +13,12 @@ def image_to_ascii_view(request):
             w = upload_form.cleaned_data["width"]
             sw = upload_form.cleaned_data["character_width"]
             sh = upload_form.cleaned_data["line_height"]
+            symbols = upload_form.cleaned_data["symbols"]
 
-            string = convert_to_text(img, w, sw, sh)
+            string = convert_to_text(img, w, sw, sh, symbols)
             return render(request, "image-result.html", {'result': string})
     else:
-        upload_form = ImageToAsciiForm()
+        upload_form = ImageToAsciiForm(initial={"width": "200", "character_width": 7.2, "line_height" : 18, "symbols": "@=- "})
 
     return render(request, "image-to-ascii.html", {'form': upload_form})
 

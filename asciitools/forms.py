@@ -6,6 +6,7 @@ class ImageToAsciiForm(forms.Form):
     width = forms.IntegerField()
     character_width = forms.FloatField()
     line_height = forms.FloatField()
+    symbols = forms.CharField()
 
     def clean_width(self):
         data = self.cleaned_data.get("width")
@@ -28,6 +29,18 @@ class ImageToAsciiForm(forms.Form):
 
         if data > 100 or data < -100:
             raise forms.ValidationError("Pick a value between -100 and 100")
+
+        return data
+
+    def clean_symbols(self):
+        data = self.data.get("symbols")
+        symbol_length = len(data)
+
+        if symbol_length > 100:
+            raise forms.ValidationError("Please enter a maximum of 100 characters")
+
+        if symbol_length < 2:
+            raise forms.ValidationError("Please enter a minimum of 2 characters")
 
         return data
 

@@ -1,17 +1,9 @@
-<section class="py-16">
-    <div class="container px-4 mx-auto">
-        <div class="flex flex-col items-start">
-            <p class="text-xs text-blueGray-400">&copy; 2021. All rights reserved.</p>
-            {% comment %}
-            <div class="order-first -mx-2 mb-4">
-                <a class="inline-block px-2" rel="nofollow" href="#">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a class="inline-block px-2" rel="nofollow" href="#">
-                    <i class="fab fa-discord"></i>
-                </a>
-            </div>
-            {% endcomment %}
-        </div>
-    </div>
-</section>
+<footer class="footer-basic">
+    <!-- Start: Links -->
+    <ul class="list-inline">
+        <li class="list-inline-item"><a href="{% url "image_to_ascii" %}">Image To Text</a></li>
+        <li class="list-inline-item"><a href="{% url "text_to_banner" %}">Banner Generator</a></li>
+    </ul><!-- End: Links -->
+    <!-- Start: Copyright -->
+    <p class="copyright">© 2021. All rights reserved.<br></p><!-- End: Copyright -->
+</footer><!-- End: Footer Basic -->

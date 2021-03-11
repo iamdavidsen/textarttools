@@ -8,49 +8,32 @@
 
 {% block content %}
     {% include "_header.html" %}
-    <section>
-        <div class="container px-4 mx-auto mb-6 mt-16">
-            <h1 class="text-4xl">Image to Ascii Art Generator Result</h1>
+    <section class="content">
+        <h1 class="text-center title">Image to Ascii Art Generator Result<br></h1>
+        <p class="description">This free online Ascii Art creator allows you to convert images to color or monochrome
+            Ascii Art. You can also convert text to Ascii Banners.<br>For colored Ascii Art we provide a wide range as
+            output formats, including SVG.<br></p>
+        <div class=" mb-3 d-flex justify-content-end">
+            <button class="btn btn-primary"
+                    id="copy" onclick="copyText()">Copy To Clipboard
+            </button>
         </div>
-        <div class="container px-4 mx-auto">
-            <div class="mb-4 flex space-x-4 justify-end">
-                {% comment %}
-                <button class="block py-4 px-8 text-sm text-white font-semibold leading-none bg-blue-600 hover:bg-blue-700 rounded"
-                        type="submit">Save as PNG
-                </button>
-                {% endcomment %}
-                <button class="block py-4 px-8 text-sm text-white font-semibold leading-none bg-blue-600 hover:bg-blue-700 rounded"
-                        id="copy" onclick="copyText()">Copy To Clipboard
-                </button>
-
-            </div>
-            <div class="mb-4">
-                <div
-                        style="resize: horizontal;overflow: hidden;width: 100%;height: auto;"
+        <div class="mb-3">
+            <div class="ascii-image-container">
+                <svg
+                        onload="loadSvg()"
+                        id="svg"
+                        width="100%"
+                        viewBox="0 0 100 100"
                 >
-                    <svg
-                            onload="loadSvg()"
-                            id="svg"
-                            width="100%"
-                            viewBox="0 0 100 100"
-                    >
-                        <foreignObject height="100%" width="100%">
-                            <pre id="text" class="text-xs font-mono font-bold mx-auto leading-none">{{ result }}</pre>
-                        </foreignObject>
-                    </svg>
-                </div>
-            </div>
-            <div class="mb-4">
-                <div class="w-full">
-                    <button onclick="window.history.back();"
-                            class="block w-full py-4 px-8 text-sm text-center text-white font-semibold leading-none bg-orange-600 hover:bg-blue-700 rounded">
-                        Generate another one?
-                    </button>
-                </div>
+                    <foreignObject height="100%" width="100%">
+                        <pre class="ascii-image" id="text">{{ result }}</pre>
+                    </foreignObject>
+                </svg>
             </div>
         </div>
-        <div class="hidden">
-            {{ form }}
+        <div class="mb-3">
+            <button onclick="window.history.back();" class="btn btn-primary">Generate another one?</button>
         </div>
     </section>
     {% include "_footer.html" %}

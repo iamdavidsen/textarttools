@@ -10,81 +10,92 @@
 
 {% block content %}
     {% include "_header.html" %}
-    <section>
-        <div class="container px-4 mx-auto mb-6 mt-16">
-            <h1 class="text-4xl">Image to Ascii Art Generator</h1>
-        </div>
-        <form class="container px-4 mx-auto" x-data="imageConverter()" method="post" enctype="multipart/form-data">
+    <section class="content">
+        <h1 class="text-center title">Image to Ascii Art Generator<br></h1>
+        <p class="description">This free online Ascii Art creator allows you to convert images to color or monochrome
+            Ascii Art. You can also convert text to Ascii Banners.<br>For colored Ascii Art we provide a wide range as
+            output formats, including SVG.<br></p>
+        <form x-data="imageConverter()" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-
-            <div class="mb-4">
-                <p class="text-sm font-semibold text-gray-500">Upload Image</p>
-                <label class="flex items-center pl-4 pr-2 bg-blueGray-100 rounded">
-                    <div class="text-xs font-semibold leading-none" x-text="imageName"></div>
-                    <input
-                            class="hidden"
-                            type="file"
-                            accept="image/*"
-                            placeholder="Choose file.."
-                            name="image"
-                            @change="fileChosen">
-                    {% include "_form_errors.html" with field=form.image %}
-                    {% include "_form_help.html" with field=form.image %}
-                    <div class="my-1 ml-auto px-4 py-3 text-xs text-white font-semibold leading-none bg-blueGray-500 hover:bg-blueGray-600 rounded cursor-pointer">
-                        Browse
+            <div class="row">
+                <div class="col">
+                    <div class="mb-3">
+                        <div class="file-upload"><label class="form-label" for="image-picker">Choose Image</label>
+                            <p x-text="imageName">No file selected</p>
+                            <input name="image" @change="fileChosen" accept="image/*" class="form-control" type="file"
+                                   id="image-picker" hidden="">
+                        </div>
+                        {% include "_form_errors.html" with field=form.image %}
+                        {% include "_form_help.html" with field=form.image %}
                     </div>
-                </label>
+                </div>
             </div>
             <template x-if="imageUrl">
-                <div class="mb-4">
-                    <img :src="imageUrl" class="w-full bg-gray-200 rounded"/>
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-4">
+                            <img :src="imageUrl" style="width: 100%"/>
+                        </div>
+                    </div>
                 </div>
             </template>
-            <div class="mb-4">
-                <label class="text-sm font-semibold text-gray-500">Width</label>
-                <input
-                        name="width"
-                        class="w-full p-4 text-xs font-semibold leading-none bg-blueGray-100 rounded outline-none"
-                        type="number"
-                        step="any"
-                        value="200"
-                        placeholder="200">
-                {% include "_form_errors.html" with field=form.width %}
-                {% include "_form_help.html" with field=form.width %}
+            <div class="row">
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="width" class="form-label">Ascii Image Width</label>
+                        <input id="width" class="form-control"
+                               type="text"
+                               name="width"
+                               type="number"
+                               step="any"
+                               placeholder="200"
+                               value="{{ form.width.value }}">
+                        {% include "_form_errors.html" with field=form.width %}
+                        {% include "_form_help.html" with field=form.width %}
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="symbols" class="form-label">Symbols (Highest contrast from the left)</label>
+                        <input id="symbols" class="form-control" type="text" name="symbols" placeholder="" value="{{ form.symbols.value }}">
+                        {% include "_form_errors.html" with field=form.symbols %}
+                        {% include "_form_help.html" with field=form.symbols %}
+                    </div>
+                </div>
             </div>
-            <div class="mb-4">
-                <div class="flex space-x-4">
-                    <div class="w-full">
-                        <label class="text-sm font-semibold text-gray-500">Character Width</label>
-                        <input
-                                name="character_width"
-                                class="w-full p-4 text-xs font-semibold leading-none bg-blueGray-100 rounded outline-none"
-                                type="number"
-                                step="any"
-                                value="7.2"
-                                placeholder="100">
+            <div class="row">
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="character-width" class="form-label">Character Width</label>
+                        <input id="character-width" class="form-control"
+                               name="character_width"
+                               type="number"
+                               step="any"
+                               value="{{ form.character_width.value }}"
+                               placeholder="100">
                         {% include "_form_errors.html" with field=form.character_width %}
                         {% include "_form_help.html" with field=form.character_width %}
                     </div>
-                    <div class="w-full">
-                        <label class="text-sm font-semibold text-gray-500">Line Height</label>
-                        <input
-                                name="line_height"
-                                class="w-full p-4 text-xs font-semibold leading-none bg-blueGray-100 rounded outline-none"
-                                type="number"
-                                value="12"
-                                placeholder="100">
+                </div>
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="character-height" class="form-label">Character Height</label>
+                        <input id="character-height" class="form-control"
+                               name="line_height"
+                               type="number"
+                               value="{{ form.line_height.value }}"
+                               placeholder="100">
                         {% include "_form_errors.html" with field=form.line_height %}
                         {% include "_form_help.html" with field=form.line_height %}
                     </div>
                 </div>
             </div>
-            <div>
-                <button
-                        class="block w-full py-4 px-8 text-sm text-white font-semibold leading-none bg-blue-600 hover:bg-blue-700 rounded"
-                        type="submit">
-                    Convert
-                </button>
+            <div class="row">
+                <div class="col">
+                    <div class="mb-3">
+                        <button class="btn btn-primary" type="submit">Generate Ascii Image</button>
+                    </div>
+                </div>
             </div>
         </form>
     </section>

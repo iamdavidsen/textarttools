@@ -1,32 +1,15 @@
-<section>
-    <div class="container px-4 mx-auto">
-
-        <a href="{% url "image_to_ascii" %}" class="mb-4" x-data="responsiveText()" x-init="onLoad()">
-            <p class="text-xs">{{ banner.font }}</p>
-            <div class="svg" style="resize: horizontal;overflow: hidden;width: 100%;height: auto;">
-                <svg x-ref="svg" width="100%" viewBox="0 0 0 0">
-                    <foreignObject height="100%" width="100%">
-                        <pre x-ref="text"
-                             class="text-blue-600 result-text text-xl font-mono font-bold mx-auto leading-none">    ___              _ _ ______                           __                          __
-   /   |  __________(_|_) ____/__  ____  ___  _________ _/ /_____  _____  ____  ___  / /_
-  / /| | / ___/ ___/ / / / __/ _ \/ __ \/ _ \/ ___/ __ `/ __/ __ \/ ___/ / __ \/ _ \/ __/
- / ___ |(__  ) /__/ / / /_/ /  __/ / / /  __/ /  / /_/ / /_/ /_/ / /  _ / / / /  __/ /_
-/_/  |_/____/\___/_/_/\____/\___/_/ /_/\___/_/   \__,_/\__/\____/_/  (_)_/ /_/\___/\__/
-
-        </pre>
-                    </foreignObject>
-                </svg>
-            </div>
-        </a>
-        <nav class="flex text-center items-center mr-0 block w-full text-sm text-white font-semibold leading-none bg-gray-400 rounded">
-
-                    <a class="flex-1 text-base font-semibold hover:bg-gray-500 py-4 px-8 rounded-l"
-                       href="{% url "image_to_ascii" %}">Image converter</a>
-
-                    <a class="flex-1 text-base font-semibold hover:bg-gray-500 py-4 px-8 rounded-r"
-                       href="{% url "text_to_banner" %}">Banner Generator</a>
-
+<nav class="navbar navbar-light navbar-expand-md navigation">
+    <div class="container">
+        <a class="navbar-brand logo" href="#">AsciiGenerator.net</a>
+        <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
+            <span class="visually-hidden">Toggle navigation</span>
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="{% url "image_to_ascii" %}">Image To Text</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url "text_to_banner" %}">Banner Generator</a></li>
             </ul>
-        </nav>
+        </div>
     </div>
-</section>
+</nav>

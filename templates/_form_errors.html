@@ -1,7 +1,5 @@
 {% if field.errors %}
-    <ul class="text-red-500">
     {% for error in field.errors %}
-        <li>{{ error }}</li>
+        <small class="form-text text-danger">{{ error }}</small>
     {% endfor %}
-    </ul>
 {% endif %}

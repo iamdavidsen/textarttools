@@ -2,7 +2,7 @@ import numpy as np
 from pyfiglet import Figlet
 
 
-def convert_to_text(image, max_pixels, symbol_width, symbol_height):
+def convert_to_text(image, max_pixels, symbol_width, symbol_height, symbols):
     w, h = image.size
 
     #symbol_width = 7.2
@@ -12,12 +12,13 @@ def convert_to_text(image, max_pixels, symbol_width, symbol_height):
 
     ratio = max_pixels/w
 
-    resized_image = image.convert('LA').resize((int(w * ratio), int(h * ratio * ( symbol_width / symbol_height )))).convert("L")
+    resized_image = image.convert("L").resize((int(w * ratio), int(h * ratio * ( symbol_width / symbol_height ))))
 
-    symbols =  "8PdI_ "[::-1]
+    symbols =  symbols[::-1]
 
     pixels = np.array(resized_image, dtype=np.int32)
 
+    pixels[pixels == 0] = 1
     for i in range(len(symbols)):
         v = np.interp(len(symbols) - 1 - i, [0,len(symbols)], [0,255])
         pixels[pixels > v] = -(i)
