@@ -7,18 +7,37 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="{% block description  %}Ascii Art Tools{% endblock %}"/>
+    <meta name="description" content="{% block description %}Ascii Art Tools{% endblock %}"/>
 
-    <meta name="google-site-verification" content="V0yv1uVTzhQy5H1QC3gBYOk50Pm-sOnTKR7cpFpGm0I" />
+    <meta name="google-site-verification" content="V0yv1uVTzhQy5H1QC3gBYOk50Pm-sOnTKR7cpFpGm0I"/>
 
     <title>{% block title %}Ascii Art Tools{% endblock %}</title>
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧾</text></svg>">
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧾</text></svg>">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta2/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap">
-    <link rel="stylesheet"  href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="{% static "assets/css/styles.min.css" %}"/>
+
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="40efd57e-a4c2-4d79-9d59-bb82f466387f"
+            data-blockingmode="auto" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CX6K7EHG88"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-CX6K7EHG88');
+    </script>
 
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
             data-cf-beacon='{"token": "142fafc1e04a46199acc1ae37b3ca61c"}'></script>
@@ -31,6 +50,8 @@
     {% endblock %}
 </head>
 <body class="background">
+<script id="CookieDeclaration" src="https://consent.cookiebot.com/40efd57e-a4c2-4d79-9d59-bb82f466387f/cd.js"
+        type="text/javascript" async></script>
 <div class="container page-container">
     {% block content %}
 
