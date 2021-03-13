@@ -37,3 +37,8 @@ def banner_generator_view(request):
         upload_form = BannerGeneratorForm()
 
     return render(request, "banner-generator.html", {'form': upload_form})
+
+def banner_generator_result_view(request, text, page):
+    pass
+
+
