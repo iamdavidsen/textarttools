@@ -73,7 +73,7 @@ function responsiveText() {
                     link.click();
                     document.body.removeChild(link);
                     delete link;
-
+                    pre.remove();
                 })
                 .catch(function (error) {
                     console.error('oops, something went wrong!', error);
