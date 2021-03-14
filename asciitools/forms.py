@@ -1,3 +1,5 @@
+import re
+
 from django import forms
 
 
@@ -7,6 +9,8 @@ class ImageToAsciiForm(forms.Form):
     character_width = forms.FloatField()
     line_height = forms.FloatField()
     symbols = forms.CharField()
+    color = forms.CharField()
+    background = forms.CharField()
 
     def clean_width(self):
         data = self.cleaned_data.get("width")
@@ -44,9 +48,31 @@ class ImageToAsciiForm(forms.Form):
 
         return data
 
+    def clean_color(self):
+        data = self.data.get("color")
+
+        match = re.search(r'^#(?:[0-9a-fA-F]{3}){1,2}$', data)
+
+        if not match:
+            raise forms.ValidationError("This field is required")
+
+        return data
+
+    def clean_background(self):
+        data = self.data.get("background")
+
+        match = re.search(r'^#(?:[0-9a-fA-F]{3}){1,2}$', data)
+
+        if not match:
+            raise forms.ValidationError("This field is required")
+
+        return data
+
 class BannerGeneratorForm(forms.Form):
     text = forms.CharField()
     width = forms.IntegerField()
+    color = forms.CharField()
+    background = forms.CharField()
 
     def clean_text(self):
         data = self.cleaned_data.get("text")
@@ -61,5 +87,25 @@ class BannerGeneratorForm(forms.Form):
 
         if data > 1000 or data < 4:
             raise forms.ValidationError("Pick a value between 8 and 800")
+
+        return data
+
+    def clean_color(self):
+        data = self.data.get("color")
+
+        match = re.search(r'^#(?:[0-9a-fA-F]{3}){1,2}$', data)
+
+        if not match:
+            raise forms.ValidationError("This field is required")
+
+        return data
+
+    def clean_background(self):
+        data = self.data.get("background")
+
+        match = re.search(r'^#(?:[0-9a-fA-F]{3}){1,2}$', data)
+
+        if not match:
+            raise forms.ValidationError("This field is required")
 
         return data

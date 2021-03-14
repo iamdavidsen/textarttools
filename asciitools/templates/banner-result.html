@@ -12,13 +12,19 @@
         <h1 class="text-center title">Ascii Banner Generator Result<br></h1>
 
         {% for banner in result %}
-            <div class="mb-3" x-data="responsiveText()" x-init="onLoad()">
-                <div class="svg ascii-image-container">
-                    <svg x-ref="svg" width="100%" viewBox="0 0 1000 1000">
-                        <foreignObject height="100%" width="100%">
-                            <pre x-ref="text" class="ascii-image">{{ banner.text }}</pre>
-                        </foreignObject>
-                    </svg>
+            <div x-data="responsiveText()">
+                <div class=" mb-2 d-flex justify-content-end">
+                    <button class="btn btn-primary me-2" x-ref="copyButton" @click="saveImg()">Save Image</button>
+                    <button class="btn btn-primary" x-ref="copyButton" @click="copyText()">Copy To Clipboard</button>
+                </div>
+                <div class="mb-3">
+                    <div x-ref="container" class="svg ascii-image-container" style="background-color: {{ background }}">
+                        <svg x-ref="svg" width="100%" viewBox="0 0 0 0" @load="onLoad()">
+                            <foreignObject height="100%" width="100%">
+                                <pre x-ref="text" class="ascii-image" style="color: {{ color }}">{{ banner.text }}</pre>
+                            </foreignObject>
+                        </svg>
+                    </div>
                 </div>
             </div>
         {% endfor %}
@@ -29,9 +35,4 @@
         </div>
     </section>
     {% include "_footer.html" %}
-{% endblock %}
-{% block scripts %}
-    <script>
-
-    </script>
 {% endblock %}

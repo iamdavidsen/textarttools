@@ -24,6 +24,7 @@
     <orderEntry type="library" name="24da465ef7" level="application" />
     <orderEntry type="library" name="all" level="application" />
     <orderEntry type="library" name="twitter-bootstrap" level="application" />
+    <orderEntry type="library" name="@simonwep/pickr" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />

@@ -1,17 +1,27 @@
 {% extends "_base.html" %}
 
 {% block description %}
-    Convert images into ascii text art. Copy paste and download ascii art.
+    Online free ASCII Art Generator for creating copy paste images using ASCII art. Pick an image to convert into ASCII art to copy-paste or save it as an image.
 {% endblock %}
 
 {% block title %}
-    Image to Ascii Art Generator
+    Convert Image To ASCII Art 🎨 | ASCII Generator
 {% endblock %}
 
 {% block content %}
     {% include "_header.html" %}
     <section class="content">
-        <h1 class="text-center title">Image to Ascii Art Generator<br></h1>
+        <h1 class="text-center title">Image to ASCII Converter<br></h1>
+
+        <div class="description mb-3">
+            <p>This tool is intended to generate ASCII text pictures from bitmap images. To create a picture, do the following:</p>
+            <ol>
+                <li>Click on Choose Image and select your desired image</li>
+                <li>Pick the resolution for the image by setting the width.</li>
+                <li>Select the characters to use for the image. Select the most contrast symbols from left to the right.</li>
+                <li>Click "Generate ASCII Image"</li>
+            </ol>
+        </div>
 
         <form x-data="imageConverter()" method="post" enctype="multipart/form-data">
             {% csrf_token %}
@@ -86,6 +96,20 @@
                         {% include "_form_errors.html" with field=form.line_height %}
                         {% include "_form_help.html" with field=form.line_height %}
                     </div>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col">
+                    <label for="color" class="form-label">Color</label>
+                    <input id="color" name="color" class="form-control color-picker" type="color" value="{{ form.color.value }}">
+                    {% include "_form_errors.html" with field=form.width %}
+                    {% include "_form_help.html" with field=form.width %}
+                </div>
+                <div class="col">
+                    <label for="background" class="form-label">Background</label>
+                    <input id="background" name="background" class="form-control color-picker" type="color" value="{{ form.background.value }}">
+                    {% include "_form_errors.html" with field=form.width %}
+                    {% include "_form_help.html" with field=form.width %}
                 </div>
             </div>
             <div class="row">

@@ -20,12 +20,17 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css"/>
+
     <link rel="stylesheet" href="{% static "assets/css/styles.min.css" %}"/>
 
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
             data-cf-beacon='{"token": "142fafc1e04a46199acc1ae37b3ca61c"}'></script>
 
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+
+    <script src="{% static "javascript/dom-to-image.min.js" %}"></script>
     <script src="{% static "javascript/main.js" %}"></script>
 
     {% block imports %}
@@ -40,9 +45,5 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta2/js/bootstrap.bundle.min.js"></script>
 </body>
-
-{% block scripts %}
-
-{% endblock %}
 
 </html>
