@@ -52,12 +52,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-if not DEBUG:
-    MIDDLEWARE += [
-        'django.middleware.cache.UpdateCacheMiddleware',
-        'django.middleware.common.CommonMiddleware',
-        'django.middleware.cache.FetchFromCacheMiddleware',
-    ]
 
 ROOT_URLCONF = 'textarttools.urls'
 
@@ -146,10 +140,3 @@ if not DEBUG:
     AWS_SECRET_ACCESS_KEY = LINODE_BUCKET_SECRET_KEY
 
 AUTH_USER_MODEL = 'accounts.Account'
-
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': 'unique-snowflake',
-    }
-}
