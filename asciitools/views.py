@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from PIL import Image, ImageOps
 
 from asciitools.converters import convert_to_text, convert_to_banner
@@ -52,4 +52,7 @@ def banner_generator_view(request):
 def banner_generator_result_view(request, text, page):
     pass
 
+
+def redirect_view(request):
+    return redirect("/", permanent=True)
 
