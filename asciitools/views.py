@@ -33,6 +33,7 @@ def image_to_ascii_view(request):
 
     return render(request, "image-to-ascii.html", {'form': upload_form})
 
+
 @ensure_csrf_cookie
 def banner_generator_view(request):
     if request.method == "POST":
