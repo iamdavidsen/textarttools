@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from PIL import Image, ImageOps
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 from asciitools.converters import convert_to_text, convert_to_banner
 from asciitools.forms import ImageToAsciiForm, BannerGeneratorForm
@@ -9,6 +10,7 @@ def home_view(request):
     return render(request, "home.html", {})
 
 
+@ensure_csrf_cookie
 def image_to_ascii_view(request):
     if request.method == "POST":
         upload_form = ImageToAsciiForm(request.POST, request.FILES)
@@ -24,13 +26,14 @@ def image_to_ascii_view(request):
             background = upload_form.cleaned_data["background"]
 
             string = convert_to_text(img, w, sw, sh, symbols)
+
             return render(request, "image-result.html", {'result': string, 'color': color, 'background': background})
     else:
         upload_form = ImageToAsciiForm(initial={"width": "200", "character_width": 7.7, "line_height" : 18, "symbols": "@=- ", "color": "#33ff33", "background": "#000000"})
 
     return render(request, "image-to-ascii.html", {'form': upload_form})
 
-
+@ensure_csrf_cookie
 def banner_generator_view(request):
     if request.method == "POST":
         upload_form = BannerGeneratorForm(request.POST, request.FILES)
