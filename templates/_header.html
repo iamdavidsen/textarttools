@@ -9,7 +9,6 @@
             {% with request.resolver_match.url_name as url_name %}
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link {% if url_name == 'image_to_ascii' %}active{% endif %}" href="{% url "image_to_ascii" %}">Image To Text</a></li>
-                    <li class="nav-item"><a class="nav-link {% if url_name == 'text_to_banner' %}active{% endif %}" href="{% url "text_to_banner" %}">Banner Generator</a></li>
                     <li class="nav-item"><a class="nav-link" href="https://keyboarding-games.com/">Typing Games</a></li>
                 </ul>
             {% endwith %}
